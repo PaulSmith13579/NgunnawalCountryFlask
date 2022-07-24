@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ngunnawal Country Website</title>
+    <link rel="stylesheet" href="Ngunnawal.css">
+</head>
+<body>
+
+
+
+<!-- This is the navbar -->
+<div class="navbar">
+    <img src="Design/Logo.png">
+    <img src="Design/Banner.png" class="center">
+    <br>
+    <a href="Index.html">Home</a>
+    <a href="PhotoAlbum.html">Photo Album</a>
+    <a href="ContactUs.html">Contact Us</a>
+    <a href="History.html">History</a>
+</div>
+
+
+<div class="grid-container"> <!-- overall layout -->
+    <div class="full-width">
+        <h1>Welcome to Ngunnawal Country</h1>
+    </div>
+    <div class="main-content" class ="double-height"> <!-- "cell 1" -->
+        <p>
+            Welcome to contact us, please get into contact if there are any problems, concerns or questions!!
+        </p>
+    </div>
+    <div>
+        <form action="/action_page.php">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+            <label for="country">Country</label>
+            <select id="country" name="country">
+                <option value="australia">Australia</option>
+                <option value="canada">Canada</option>
+                <option value="usa">USA</option>
+            </select>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label for="subject">Subject</label>
+        </div>
+        <div class="col-75">
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <input type="submit" value="Submit">
+    </div>
+    </form>
+</div>
+
+
+
+
+
+</body>
+</html>
