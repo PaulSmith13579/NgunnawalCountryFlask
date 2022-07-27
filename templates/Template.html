@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="Ngunnawal.css">
+    <link rel="stylesheet" href="/static/Ngunnawal.css">
     {% block pageStyle %}
     {% endblock %}
 </head>
@@ -23,20 +23,18 @@
 </div>
 
 
-<div class="grid-container"> <!-- overall layout -->
-    <div class="full-width">
-        <h1>{{ title }}</h1>
+<div class="grid-container"> <!-- Overall Layout -->
+    <div class="full-width text-highlighting">
+        <h1 style="text-align: center">{{ title }}</h1>
     </div>
-    <div class="main-content" class ="double-height"> <!-- "cell 1" -->
+    <div class="double-height">
         {% block cellContent1 %} {% endblock %}
     </div>
-    <div> <!-- "cell 2" -->
+    <div>
         {% block cellContent2 %} {% endblock %}
     </div>
-    <div><!-- "cell 3" -->
-        <p>
-            {% block cellContent3 %} {% endblock %}
-        </p>
+    <div class="text-highlighting">
+        {% block cellContent3 %} {% endblock %}
     </div>
 </div>
 
