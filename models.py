@@ -3,6 +3,7 @@ from datetime import datetime
 
 
 class Contact(db.Model):
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.Text)
     email = db.Column(db.Text)
     message = db.Column(db.Text)
