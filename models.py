@@ -40,3 +40,4 @@ class User(UserMixin, db.Model):
             return True
         else:
             return False
+
