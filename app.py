@@ -20,7 +20,7 @@ def register():
         new_user.set_password(form.password.data)
         db.session.add(new_user)
         db.session.commit()
-        return redirect(url_for("homepage"))
+        return redirect(url_for("Homepage"))
     return render_template("registration.html", title="User Registration", form=form)
 
 @app.route('/')
