@@ -22,7 +22,9 @@
 <a href="contact.html">Contact us</a>
 <a href="History.html">History</a>
 <a href="register">User Registration</a>
+<a href="/login">LogIn</a>
     <input type="text" placeholder="Search...">
+    <div style="color:white">{{ user.name }}</div>
 </div>
 
 
@@ -34,7 +36,9 @@
         {% block cellContent1 %} {% endblock %}
     </div>
     <div>
-        {% block cellContent2 %} {% endblock %}
+        {% block cellContent2 %}
+        Welcome {{ user.name }}!
+        {% endblock %}
     </div>
     <div class="text-highlighting">
         {% block cellContent3 %} {% endblock %}
