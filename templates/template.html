@@ -22,7 +22,11 @@
 <a href="contact.html">Contact us</a>
 <a href="History.html">History</a>
 <a href="register">User Registration</a>
+    {% if user.is_anonymous %}
 <a href="/login">LogIn</a>
+    {% else %}
+<a href="/logout">LogOut</a>
+    {% endif %}
     <input type="text" placeholder="Search...">
     <div style="color:white">{{ user.name }}</div>
 </div>

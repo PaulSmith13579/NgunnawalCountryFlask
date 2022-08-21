@@ -83,6 +83,10 @@ def login():
         return redirect(url_for('Homepage'))
     return render_template("login.html", title="Sign In", form=form, user=current_user)
 
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('homepage'))
 
 if __name__ == '__main__':
     app.run()
