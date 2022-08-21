@@ -1,13 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
+from flask_login import current_user, login_user, LoginManager, logout_user
 
 app = Flask(__name__)
 
 app.config.from_object(Config)  # loads the configuration for the database
 db = SQLAlchemy(app)  # creates the db object using the configuration
 
-from models import Contact, todo, Contact, User
+login = LoginManager(app)
+login.login_view = 'login'
+
+from models import todo, Contact, User
 from forms import ContactForm, RegistrationForm, LoginForm
 
 
@@ -68,7 +72,7 @@ def edit_note(todo_id):
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    form = LoginForm
+    form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(email_address=form.email_address.data).first()
         if user is None:
