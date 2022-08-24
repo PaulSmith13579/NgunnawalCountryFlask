@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from flask_login import current_user, login_user, LoginManager, logout_user, login_required
@@ -40,6 +40,8 @@ def contact():
         new_contact = Contact(name=form.name.data, email=form.email.data, message=form.message.data)
         db.session.add(new_contact)
         db.session.commit()
+        flash("Thanks for your message")
+        return redirect(url_for("Homepage"))
     return render_template("contact.html", title="Contact Us", form=form, user=current_user)
 
 
@@ -98,6 +100,7 @@ def reset_password():
         user = User.query.filter_by(email_address=current_user.email_address).first()
         user.set_password(form.new_password.data)
         db.session.commit()
+        flash("Your password has been changed.")
         return redirect(url_for('Homepage'))
     return render_template("passwordreset.html", title='Reset Password', form=form, user=current_user)
 
