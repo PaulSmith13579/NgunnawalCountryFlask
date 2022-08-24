@@ -17,20 +17,20 @@
     <img src="/static/Design/Logo.png">
     <img src="/static/Design/Banner.png" class="center">
     <br>
-<a href="Index.html">Home</a>
-<a href="PhotoAlbum.html">Photo album</a>
-<a href="contact.html">Contact us</a>
-<a href="History.html">History</a>
-<a href="register">User Registration</a>
+    <a href="Index.html">Home</a>
+    <a href="PhotoAlbum.html">Photo album</a>
+    <a href="contact.html">Contact us</a>
+    <a href="History.html">History</a>
+    <a href="register">User Registration</a>
     {% if user.is_anonymous %}
-<a href="/login">LogIn</a>
+        <a href="/login">LogIn</a>
     {% else %}
-<a href="/logout">LogOut</a>
+        <a href="/logout">LogOut</a>
     {% endif %}
     <input type="text" placeholder="Search...">
     <div style="color:white">{{ user.name }}</div>
 </div>
-
+<a href="/reset_password">Reset Password</a>
 
 <div class="grid-container"> <!-- Overall Layout -->
     <div class="full-width text-highlighting">
@@ -41,16 +41,13 @@
     </div>
     <div>
         {% block cellContent2 %}
-        Welcome {{ user.name }}!
+            Welcome {{ user.name }}!
         {% endblock %}
     </div>
     <div class="text-highlighting">
         {% block cellContent3 %} {% endblock %}
     </div>
 </div>
-
-
-
 
 
 </body>

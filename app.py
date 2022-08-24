@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
-from flask_login import current_user, login_user, LoginManager, logout_user
+from flask_login import current_user, login_user, LoginManager, logout_user, login_required
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ login = LoginManager(app)
 login.login_view = 'login'
 
 from models import todo, Contact, User
-from forms import ContactForm, RegistrationForm, LoginForm
+from forms import ContactForm, RegistrationForm, LoginForm, ResetPasswordForm
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -83,10 +83,24 @@ def login():
         return redirect(url_for('Homepage'))
     return render_template("login.html", title="Sign In", form=form, user=current_user)
 
+
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('homepage'))
+    return redirect(url_for('Homepage'))
+
+
+@app.route('/reset_password', methods=['GET', 'POST'])
+@login_required
+def reset_password():
+    form = ResetPasswordForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email_address=current_user.email_address).first()
+        user.set_password(form.new_password.data)
+        db.session.commit()
+        return redirect(url_for('Homepage'))
+    return render_template("passwordreset.html", title='Reset Password', form=form, user=current_user)
+
 
 if __name__ == '__main__':
     app.run()
