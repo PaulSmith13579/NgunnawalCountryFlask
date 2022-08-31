@@ -44,7 +44,6 @@ def contact():
         return redirect(url_for("Homepage"))
     return render_template("contact.html", title="Contact Us", form=form, user=current_user)
 
-
 @app.route('/todo', methods=["POST", "GET"])
 def view_todo():
     all_todo = db.session.query(todo).all()
